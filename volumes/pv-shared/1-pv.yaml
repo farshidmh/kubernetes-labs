@@ -1,0 +1,18 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+
+metadata:
+  name: pv-1
+  labels:
+    type: local
+
+spec:
+  capacity:
+    storage: 10Gi
+  #storageClassName: local-storage
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/pv-1"

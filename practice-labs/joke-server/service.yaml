@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jokes-service
+spec:
+  type: NodePort
+  ports:
+    # Three types of ports for a service
+    # nodePort - a static port assigned on each the node
+    # port - port exposed internally in the cluster
+    # targetPort - the container port to send requests to
+    - nodePort: 30001
+      port: 8080
+      targetPort: 5000
+      protocol: TCP
+  selector:
+    app: jokes
+    #version: v1

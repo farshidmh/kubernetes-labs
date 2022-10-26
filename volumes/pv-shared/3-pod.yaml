@@ -1,0 +1,30 @@
+---
+## Persistent Volume Example
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: shared-volume-example-2
+spec:
+  containers:
+    - name: c1
+      image: ubuntu
+      command: ["/bin/bash" , "-c" , "sleep 10000"]
+      volumeMounts:
+        - name: xchange
+          mountPath: "/tmp/data"
+    - name: c2
+      image: ubuntu
+      command: ["/bin/bash" , "-c" , "sleep 10000"]
+      volumeMounts:
+        - name: xchange
+          mountPath: "/tmp/data"
+  volumes:
+    - name: xchange
+      persistentVolumeClaim:
+        claimName: myclaim-1
+
+  ## For multinode clusters, use the following to place
+  ## pods to a single node
+  #nodeSelector:
+  #  kubernetes.io/hostname: "ip-172-31-35-116"

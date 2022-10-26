@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-redmine-service
+spec:
+  ports:
+    - port: ???
+---
+ ????
+
+
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: mysql-redmine
+spec:
+
+  strategy:
+    type: Recreate
+
+  template:
+    spec:
+      containers:
+        - name: mysql
+          image: ???
+          ports:
+            - containerPort: ???
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              ??? # Read from secret
+          volumeMounts:
+            - name: ???
+              mountPath: ??? # find out where mysql store the database files
+
+      volumes:
+        - name: ???
+          persistentVolumeClaim:
+            claimName: ???
+---

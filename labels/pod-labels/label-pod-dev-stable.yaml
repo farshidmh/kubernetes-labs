@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-labels-dev-stable
+  labels:
+    release: stable
+    environment: dev
+    app: nginx
+spec:
+  containers:
+    - name: web
+      image: nginx

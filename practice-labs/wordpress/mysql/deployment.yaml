@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ???
+metadata:
+  name: mysql-deployment
+
+spec:
+
+  strategy:
+    type: ???
+
+  template:
+    spec:
+      containers:
+        - name: mysql
+          image: ???
+          ports:
+            - containerPort: ???
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              ??? # Read from secret
+          volumeMounts:
+            - name: ???
+              mountPath: /var/lib/mysql
+
+      volumes:
+        - name: ???
+          persistentVolumeClaim:
+            claimName: ???

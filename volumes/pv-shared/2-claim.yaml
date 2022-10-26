@@ -1,0 +1,14 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: myclaim-1
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+  #storageClassName: local-storage
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 3Gi

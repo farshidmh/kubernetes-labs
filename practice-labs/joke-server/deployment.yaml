@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jokes-v1
+spec:
+  selector:
+    matchLabels:
+      app: jokes
+      version: v1
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: jokes
+        version: v1
+    spec:
+      containers:
+      - name: jokes
+        image: sujee/jokes-server:1
+        #imagePullPolicy:  Always
+        imagePullPolicy:  IfNotPresent
+        ports:
+        - containerPort: 5000

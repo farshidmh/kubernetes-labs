@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-labels-dev-canary
+  labels:
+    release: canary
+    environment: dev
+    app: nginx
+spec:
+  containers:
+    - name: web
+      image: nginx

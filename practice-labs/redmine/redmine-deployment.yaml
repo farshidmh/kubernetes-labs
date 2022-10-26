@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: redmine
+  labels:
+    app: redmine
+spec:
+
+  ???
+
+  template:
+    metadata:
+      labels:
+        app: redmine
+
+    spec:
+      containers:
+      - name: redmine
+        image: ???
+        imagePullPolicy: ???
+        ports:
+          - name: http
+            containerPort: ???
+        env:
+          - name: REDMINE_DB_MYSQL
+            value: mysql
+          - name: REDMINE_DB_PASSWORD
+            value: ?? # read from secret file
